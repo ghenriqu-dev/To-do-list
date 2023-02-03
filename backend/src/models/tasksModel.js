@@ -11,9 +11,10 @@ const createTask = async (task) => {
 
     const [createdTask] = await connection.execute(query, [title, 'Pendente', date])
 
-    return createdTask
+    return {id: createdTask.insertId}
 }
 
 module.exports = {
-    getAll
+    getAll,
+    createTask
 }
