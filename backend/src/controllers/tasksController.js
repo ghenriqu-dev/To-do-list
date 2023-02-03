@@ -5,6 +5,12 @@ const getAll = async (request, response) => {
     return response.status(200).json(tasks)
 }
 
+const createTask = async (request, response) => {
+    //const createdTask = await tasksModel.createTask()
+    return response.status(201).json(request.body)
+}
+
 module.exports = {
-    getAll
+    getAll,
+    createTask
 }
