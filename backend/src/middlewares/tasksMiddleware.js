@@ -26,7 +26,22 @@ const validateStatus = (request, response, next) => {
     next()
 }
 
+const validateId = (request, response, next) => {
+    const { id } = request.params
+
+    if (id === undefined){
+        return response.status(400).json({message: 'Id is required'})
+    }
+
+    if (id === ''){
+        return response.status(400).json({message: 'Id is required'})
+    }
+
+    next()
+}
+
 module.exports = {
     validateTitle,
-    validateStatus
+    validateStatus,
+    validateId
 }
